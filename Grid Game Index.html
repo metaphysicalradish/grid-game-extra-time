@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <script type="text/javascript" src="main.js"></script>
+
+        <title>Grid game</title>
+    </head>
+    <style>
+        .tooltip {
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+        }
+        
+        .tooltip .tooltiptext {
+          visibility: hidden;
+          width: 240px;
+          background-color: black;
+          color: #fff;
+          text-align: center;
+          border-radius: 6px;
+          padding: 5px;
+        
+          /* Position the tooltip */
+          position: absolute;
+          z-index: 1;
+          top: -5px;
+          left: 105%;
+        }
+        
+        .tooltip:hover .tooltiptext {
+          visibility: visible;
+        }
+        </style>
+        
+    <body>
+        <div style='display:flex'>
+            <div style='flex:50%'>
+                <canvas id="canvas" width="100%" height="100%"></canvas>
+            </div>
+            <div style='flex:50%; font-size:1.5em; margin-top:1em;'>
+                <div id='info'>
+                    <div style='margin-top:1em;'>
+                    Time: <span id='time'></span>
+                    </div>
+                    <div style='margin-top:1em;'>
+                        Wins: <span id='wins'></span> / <span id='games'></span> <span id='winrate'></span>
+                    </div>
+                    <div style='margin-top:1em;'>
+                        Average time: <span id='average'></span>
+                    </div>
+                    <div style='margin-top:1em; height:1em; color:green; font-weight:bold'>
+                        <span id='continue'></span>
+                    </div>
+                </div>
+                    <div style='margin-top:1em;'> <span id='highscore'></span></div>
+                    <div style='margin-top:1em'> <span id='speedscore'></span></div>
+                    <div style='margin-top:1em'>  <button id='reset'>Reset score</button> </div>
+                    <div style='margin-top:1em'>  <button id='instructionsButton'>Instructions</button> </div>
+                    <div style='margin-top:1em; display:none' id='instructions'> 
+                        <ul>
+                            <li> Use arrow keys to select a path from the left to right of the grid. </li>
+                            <li> The path must go straight through each square, and turn 90 degrees at each diamond. </li>
+                            <li> For each number, the path must traverse exactly that many of the adjacent edges.</li>
+                            <li> For each cycle, the path must traverse an adjacent edge in the indicated orientation. </li>
+                            <li> A symbol will block illegal moves, and turn black once it is satisfied.</li>
+                            <li> The goal on the right side will turn black once all symbols are satisfied. </li>
+                            <li> After finishing a level, press enter or space to move onto the next level. </li>
+                            <li> You can undo a move by pressing 'z' or retracing your steps. </li>
+                            <li> You can restart the level by pressing space. This leaves the old path as a grey shadow.</li>
+                            <li> You can retrace your old steps by pressing 'x' when you are on the grey shadow. </li>
+                            <li> This is a helpful way to modify the beginning of a trajectory. </li>
+                            <li> Your personal best score is computed as the bottom of a confidence interval. </li>
+                    </div>
+                </div>
+            </div>
+        <div>
+    </body>
+</html>
