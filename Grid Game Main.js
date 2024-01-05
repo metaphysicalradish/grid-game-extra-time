@@ -702,7 +702,7 @@ function isVictory(g) {
     }
     return x === g.grid.target[0] && y === g.grid.target[1];
 }
-var gameTime = 60;
+var gameTime = 600000;
 function winGame(state, drawResult) {
     state.score.wins += 1;
     state.score.totalTime += gameTime - state.time;
